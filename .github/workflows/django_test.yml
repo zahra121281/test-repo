@@ -58,6 +58,9 @@ jobs:
             print('Database connection error:', str(e))
             exit(1)
         "
+    - name: get file list
+      working-directory: BackEnd
+      run: ls -al
     - name: Run tests
       working-directory: BackEnd
       env:
