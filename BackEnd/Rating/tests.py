@@ -78,7 +78,8 @@ class RatingViewSetTestCase(TestCase):
     def test_rating_creation_success(self, mock_rating_filter):
         # Ensure no duplicate rating exists
         mock_rating_filter.return_value.exists.return_value = False
-
+        print("***************************************************************")
+        print(f"lllllllllllll {self.rating_url}")
         response = self.client.post(self.rating_url, self.valid_payload)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(response.data['psychiatrist'], self.valid_payload['psychiatrist'])
