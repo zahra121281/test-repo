@@ -48,7 +48,7 @@ jobs:
                 dbname='TherapyDB',
                 user='postgres',
                 password='Hgbr@@5391',
-                host='localhost',
+                host='postgreSQL',
                 port='5432'
             )
             conn.close()
@@ -65,7 +65,7 @@ jobs:
       working-directory: BackEnd
       env:
           DB: ${{ matrix.db }}
-          DB_HOST: 'localhost'
+          DB_HOST: 'postgreSQL'
           DB_PORT: ${{ matrix.db_port }}
           DB_PASSWORD: Hgbr@@5391
           DB_NAME: 'TherapyDB'
