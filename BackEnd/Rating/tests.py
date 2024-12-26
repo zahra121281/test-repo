@@ -5,7 +5,6 @@ from unittest.mock import patch
 from django.contrib.auth.hashers import make_password
 from django.conf import settings
 from django.contrib.auth import get_user_model
-User = get_user_model()
 from .models import Pationt, Psychiatrist, Rating
 from reservation.models import Reservation
 # from accounts.models import User
@@ -16,6 +15,7 @@ from reservation.models import Reservation
 class RatingViewSetTestCase(TestCase):
     
     def setUp(self):
+        User = get_user_model()
         # Create a mock user
         self.user = User.objects.create(
             email="testuser@example.com",
