@@ -225,6 +225,7 @@ DATABASES = {
         'DISABLE_SERVER_SIDE_CURSORS': True,
         'TEST': {
             'NAME': 'test_TherapyDB', 
+            'HOST': 'localhost',
         },
     }
 }
