@@ -60,3 +60,4 @@ transformers
 python-Levenshtein
 pydub
 librosa
+pytest
