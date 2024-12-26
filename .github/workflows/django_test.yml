@@ -31,13 +31,16 @@ jobs:
         python-version: ${{ matrix.python-version }}
 
     - name: Create virtual environment
+      working-directory: BackEnd
       run: |
         python -m venv venv
         source venv/bin/activate
     - name: Install dependencies
+      working-directory: BackEnd
       run: pip install -r requirements.txt
 
     - name: Check Database Connection
+      working-directory: BackEnd
       run: |
         python -c "
         import psycopg2
@@ -56,6 +59,7 @@ jobs:
             exit(1)
         "
     - name: Run tests
+      working-directory: BackEnd
       env:
           DB: ${{ matrix.db }}
           DB_HOST: 'localhost'
