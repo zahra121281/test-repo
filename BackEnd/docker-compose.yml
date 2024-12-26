@@ -16,7 +16,7 @@ services:
       - POSTGRES_DB=${POSTGRES_DB}
     networks:
       - eniac
-
+# 
   backend:
     build: .
     image: eniacgroup/back-end:latest
