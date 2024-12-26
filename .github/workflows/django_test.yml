@@ -35,9 +35,6 @@ jobs:
       run: |
         python -m venv venv
         source venv/bin/activate
-    - name: Install dependencies
-      working-directory: BackEnd
-      run: pip install -r requirements.txt
 
     - name: Check Database Connection
       working-directory: BackEnd
@@ -58,6 +55,9 @@ jobs:
             print('Database connection error:', str(e))
             exit(1)
         "
+    - name: Install dependencies
+      working-directory: BackEnd
+      run: pip install -r requirements.txt
     - name: get file list
       working-directory: BackEnd
       run: ls -al
@@ -71,7 +71,7 @@ jobs:
           DB_NAME: 'TherapyDB'
           DB_USER: 'postgres'
           WEBSITE_URL: 'localhost'
-      run: pytest
+      run: python manage.py test
 
   # Deploy:  
   #   needs: build-and-test  # This ensures that deploy job runs only if build job succeeds  
