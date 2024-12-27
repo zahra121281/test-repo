@@ -71,7 +71,7 @@ class RatingViewSetTestCase(TestCase):
             "comments": ""
         }
 
-        self.rating_url = f"{settings.WEBSITE_URL}Rating/Rate/"
+        self.rating_url = f"{settings.WEBSITE_URL}/Rating/Rate/"
 
 
     @patch('Rating.models.Rating.objects.filter')  # Mock database filters
