@@ -56,7 +56,7 @@ class SignUpViewTestCase(APITestCase):
         # Validate other fields
         self.assertEqual(response.data["message"], "User created successfully. Please check your email to activate your account.")
         self.assertEqual(response.data["code"], "6795")
-        url = f"{self.website_url}accounts/activation_confirm/"
+        url = "http://46.249.100.141:8070/accounts/activation_confirm/"
         print(f"hthis is urlllllllll : {url}")
         print(f"this is real url " , response.data["url"])
         self.assertTrue(response.data["url"].startswith(url))
