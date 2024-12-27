@@ -56,10 +56,10 @@ class SignUpViewTestCase(APITestCase):
         # Validate other fields
         self.assertEqual(response.data["message"], "User created successfully. Please check your email to activate your account.")
         self.assertEqual(response.data["code"], "6795")
-        url = f"{self.website_url}accounts/activation_confirm/"
         print(f"hthis is urlllllllll : {url}")
+        url = f"{self.website_url}accounts/activation_confirm/"
+        print(f"this is real url " , response.data["url"])
         self.assertTrue(response.data["url"].startswith(url))
-        print(f"this is real url : {response.data["url"]}")
         # Check if the user is created in the database
         self.assertTrue(User.objects.filter(email=self.valid_data["email"]).exists())
         
