@@ -25,6 +25,8 @@ class SignUpViewTestCase(APITestCase):
             "is_doctor": False,
         }
         self.website_url = settings.WEBSITE_URL
+        print("***************************************************************")
+        print(f"lllllllllllll {self.website_url}")
         
 
     @patch('accounts.views.random.randint', return_value=6795)  
