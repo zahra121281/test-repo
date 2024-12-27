@@ -25,9 +25,7 @@ class SignUpViewTestCase(APITestCase):
             "is_doctor": False,
         }
         self.website_url = settings.WEBSITE_URL
-        print("***************************************************************")
-        print(f"lllllllllllll {self.website_url}")
-        
+       
 
     @patch('accounts.views.random.randint', return_value=6795)  
     @patch('accounts.views.EmailThread.start')  
@@ -59,8 +57,9 @@ class SignUpViewTestCase(APITestCase):
         self.assertEqual(response.data["message"], "User created successfully. Please check your email to activate your account.")
         self.assertEqual(response.data["code"], "6795")
         url = f"{self.website_url}accounts/activation_confirm/"
+        print(f"hthis is urlllllllll : {url}")
         self.assertTrue(response.data["url"].startswith(url))
-        
+        print(f"this is real url : {response.data["url"]}")
         # Check if the user is created in the database
         self.assertTrue(User.objects.filter(email=self.valid_data["email"]).exists())
         
